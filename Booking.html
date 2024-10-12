@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Booking - VehicleVista</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f1f1f1;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            border-top: 1px solid rgba(14, 14, 14, 0.5);
+            border-left: 1px solid rgba(13, 12, 12, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            color: white;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-list li {
+            margin: 0 15px;
+        }
+
+        .nav-list a {
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        .nav-list a:hover {
+            color: #ff8c00;
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .vehicle-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            position: relative;
+        }
+
+        .vehicle-image {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
+        .vehicle-name {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        .vehicle-details {
+            margin-top: 10px;
+        }
+
+        .vehicle-details p {
+            margin: 5px 0;
+        }
+
+        .booking-form-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            display: none;
+        }
+
+        .booking-form-container.active {
+            display: block;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <ul class="nav-list">
+                <li><a href="Index.html">Home</a></li>
+                <li><a href="Login.html">Login</a></li>
+                <li><a href="Menu.html">Menu</a></li>
+                <li><a href="Booking.html">Booking</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="Contacts.html">Contact</a></li>  
+            </ul>
+        </nav>
+    </header>
+
+<div class="container">
+    <div class="vehicle-card" id="vehicle1">
+        <img class="vehicle-image" src="m1.jpg" alt="Car 1">
+        <div class="vehicle-details">
+            <h2 class="vehicle-name">Car 1</h2>
+            <p>Model: ABC123</p>
+            <p>Color: Red</p>
+            <p>Price: $50/day</p>
+        </div>
+        <button onclick="showBookingForm('vehicle1')">Book Now</button>
+        <div class="booking-form-container" id="booking1">
+            <form action="#" method="post">
+                <h2>Booking Form</h2>
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="phone">Your Phone:</label>
+                <input type="text" id="phone" name="phone" required>
+                <label for="pickup-date">Pickup Date:</label>
+                <input type="date" id="pickup-date" name="pickup-date" required>
+                <label for="return-date">Return Date:</label>
+                <input type="date" id="return-date" name="return-date" required>
+                <button type="submit">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="vehicle-card" id="vehicle2">
+        <img class="vehicle-image" src="m2.jpg" alt="Car 2">
+        <div class="vehicle-details">
+            <h2 class="vehicle-name">Car 2</h2>
+            <p>Model: XYZ456</p>
+            <p>Color: Blue</p>
+            <p>Price: $60/day</p>
+        </div>
+        <button onclick="showBookingForm('vehicle2')">Book Now</button>
+        <div class="booking-form-container" id="booking2">
+            <form action="#" method="post">
+                <h2>Booking Form</h2>
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="phone">Your Phone:</label>
+                <input type="text" id="phone" name="phone" required>
+                <label for="pickup-date">Pickup Date:</label>
+                <input type="date" id="pickup-date" name="pickup-date" required>
+                <label for="return-date">Return Date:</label>
+                <input type="date" id="return-date" name="return-date" required>
+                <button type="submit">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="vehicle-card" id="vehicle3">
+    <img class="vehicle-image" src="m3.jpg" alt="Car 3">
+    <div class="vehicle-details">
+        <h2 class="vehicle-name">Car 1</h2>
+        <p>Model: ABC123</p>
+        <p>Color: Red</p>
+        <p>Price: $50/day</p>
+    </div>
+    <button onclick="showBookingForm('vehicle3')">Book Now</button>
+    <div class="booking-form-container" id="booking3">
+        <form action="#" method="post">
+            <h2>Booking Form</h2>
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="phone">Your Phone:</label>
+            <input type="text" id="phone" name="phone" required>
+            <label for="pickup-date">Pickup Date:</label>
+            <input type="date" id="pickup-date" name="pickup-date" required>
+            <label for="return-date">Return Date:</label>
+            <input type="date" id="return-date" name="return-date" required>
+            <button type="submit">Confirm Booking</button>
+        </form>
+    </div>
+</div>
+
+<div class="vehicle-card" id="vehicle4">
+    <img class="vehicle-image" src="m4.jpg" alt="Car 4">
+    <div class="vehicle-details">
+        <h2 class="vehicle-name">Car 1</h2>
+        <p>Model: ABC123</p>
+        <p>Color: Red</p>
+        <p>Price: $50/day</p>
+    </div>
+    <button onclick="showBookingForm('vehicle4')">Book Now</button>
+    <div class="booking-form-container" id="booking4">
+        <form action="#" method="post">
+            <h2>Booking Form</h2>
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="phone">Your Phone:</label>
+            <input type="text" id="phone" name="phone" required>
+            <label for="pickup-date">Pickup Date:</label>
+            <input type="date" id="pickup-date" name="pickup-date" required>
+            <label for="return-date">Return Date:</label>
+            <input type="date" id="return-date" name="return-date" required>
+            <button type="submit">Confirm Booking</button>
+        </form>
+    </div>
+</div>
+
+<div class="vehicle-card" id="vehicle5">
+    <img class="vehicle-image" src="m5.jpg" alt="Car 5">
+    <div class="vehicle-details">
+        <h2 class="vehicle-name">Car 5</h2>
+        <p>Model: ABC123</p>
+        <p>Color: Red</p>
+        <p>Price: $50/day</p>
+    </div>
+    <button onclick="showBookingForm('vehicle5')">Book Now</button>
+    <div class="booking-form-container" id="booking1">
+        <form action="#" method="post">
+            <h2>Booking Form</h2>
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="phone">Your Phone:</label>
+            <input type="text" id="phone" name="phone" required>
+            <label for="pickup-date">Pickup Date:</label>
+            <input type="date" id="pickup-date" name="pickup-date" required>
+            <label for="return-date">Return Date:</label>
+            <input type="date" id="return-date" name="return-date" required>
+            <button type="submit">Confirm Booking</button>
+        </form>
+    </div>
+</div>
+
+<div class="vehicle-card" id="vehicle6">
+    <img class="vehicle-image" src="m6.jpg" alt="Car 6">
+    <div class="vehicle-details">
+        <h2 class="vehicle-name">Car 6</h2>
+        <p>Model: ABC123</p>
+        <p>Color: Red</p>
+        <p>Price: $50/day</p>
+    </div>
+    <button onclick="showBookingForm('vehicle6')">Book Now</button>
+    <div class="booking-form-container" id="booking6">
+        <form action="#" method="post">
+            <h2>Booking Form</h2>
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="phone">Your Phone:</label>
+            <input type="text" id="phone" name="phone" required>
+            <label for="pickup-date">Pickup Date:</label>
+            <input type="date" id="pickup-date" name="pickup-date" required>
+            <label for="return-date">Return Date:</label>
+            <input type="date" id="return-date" name="return-date" required>
+            <button type="submit">Confirm Booking</button>
+        </form>
+    </div>
+</div>
+
+<div class="vehicle-card" id="vehicle1">
+    <img class="vehicle-image" src="m7.jpg" alt="Car 7">
+    <div class="vehicle-details">
+        <h2 class="vehicle-name">Car 7</h2>
+        <p>Model: ABC123</p>
+        <p>Color: Red</p>
+        <p>Price: $50/day</p>
+    </div>
+    <button onclick="showBookingForm('vehicle7')">Book Now</button>
+    <div class="booking-form-container" id="booking7">
+        <form action="#" method="post">
+            <h2>Booking Form</h2>
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="phone">Your Phone:</label>
+            <input type="text" id="phone" name="phone" required>
+            <label for="pickup-date">Pickup Date:</label>
+            <input type="date" id="pickup-date" name="pickup-date" required>
+            <label for="return-date">Return Date:</label>
+            <input type="date" id="return-date" name="return-date" required>
+            <button type="submit">Confirm Booking</button>
+        </form>
+    </div>
+</div>
+
+<div class="vehicle-card" id="vehicle8">
+    <img class="vehicle-image" src="m8.jpg" alt="Car 8">
+    <div class="vehicle-details">
+        <h2 class="vehicle-name">Car 8</h2>
+        <p>Model: ABC123</p>
+        <p>Color: Red</p>
+        <p>Price: $50/day</p>
+    </div>
+    <button onclick="showBookingForm('vehicle8')">Book Now</button>
+    <div class="booking-form-container" id="booking8">
+        <form action="#" method="post">
+            <h2>Booking Form</h2>
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="phone">Your Phone:</label>
+            <input type="text" id="phone" name="phone" required>
+            <label for="pickup-date">Pickup Date:</label>
+            <input type="date" id="pickup-date" name="pickup-date" required>
+            <label for="return-date">Return Date:</label>
+            <input type="date" id="return-date" name="return-date" required>
+            <button type="submit">Confirm Booking</button>
+        </form>
+    </div>
+</div>
+
+<div class="vehicle-card" id="vehicle9">
+    <img class="vehicle-image" src="m9.jpg" alt="Car 9">
+    <div class="vehicle-details">
+        <h2 class="vehicle-name">Car 9</h2>
+        <p>Model: ABC123</p>
+        <p>Color: Red</p>
+        <p>Price: $50/day</p>
+    </div>
+    <button onclick="showBookingForm('vehicle9')">Book Now</button>
+    <div class="booking-form-container" id="booking9">
+        <form action="#" method="post">
+            <h2>Booking Form</h2>
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="phone">Your Phone:</label>
+            <input type="text" id="phone" name="phone" required>
+            <label for="pickup-date">Pickup Date:</label>
+            <input type="date" id="pickup-date" name="pickup-date" required>
+            <label for="return-date">Return Date:</label>
+            <input type="date" id="return-date" name="return-date" required>
+            <button type="submit">Confirm Booking</button>
+        </form>
+    </div>
+</div>
+<script>
+    function showBookingForm(vehicleId) {
+        var bookingForm = document.getElementById('booking' + vehicleId.substr(-1));
+        bookingForm.classList.toggle('active');
+    }
+</script>
+
+<footer>
+    <p>&copy; 2024 VehicleVista. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

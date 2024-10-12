@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("b3.jpg");
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            color: white;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            border-top: 1px solid rgba(14, 14, 14, 0.5);
+            border-left: 1px solid rgba(13, 12, 12, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            color: white;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-list li {
+            margin: 0 15px;
+        }
+
+        .nav-list a {
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        .nav-list a:hover {
+            color: #ff8c00;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        section {
+            margin-bottom: 30px;
+            flex: 1;
+        }
+
+        .about-box {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            text-align: center;
+            color: yellow;
+        }
+
+        pre {
+            font-size: 20px;
+            margin-top: 20px;
+            white-space: pre-wrap;
+            text-align: center;
+            color: white;
+        }
+
+        #sub {
+            border: none;
+            outline: none;
+            background-color: dodgerblue;
+            color: white;
+            width: 150px;
+            height: 40px;
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            display: block;
+            text-decoration: none; /* Remove underline */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #sub:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px 0;
+            color: white;
+            text-align: center;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul class="nav-list">
+                <li><a href="Index.html">Home</a></li>
+                <li><a href="Login.html">Login</a></li>
+                <li><a href="Menu.html">Menu</a></li>
+                <li><a href="Booking.html">Booking</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="Contacts.html">Contact</a></li>  
+            </ul>
+        </nav>
+    </header>
+        
+    <main>
+        <section>
+            <h1>About Us:</h1>
+            <div class="about-box">
+                <pre>
+Welcome to VehicleVista, your premier solution for efficient and hassle-free vehicle rental management. Our cutting-edge platform streamlines the entire rental process, from booking to return, providing both rental agencies and customers with a seamless experience. VehicleVista ensures optimal fleet utilization, transparent communication, and unparalleled convenience for all stakeholders.
+                </pre>
+                <a href="Contacts.html" id="sub">Contact Me</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 VehicleVista. All rights reserved.</p>
+    </footer>
+</body>
+</html>
